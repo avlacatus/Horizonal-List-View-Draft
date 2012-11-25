@@ -17,11 +17,13 @@ public class HorizontalListAdapter extends BaseAdapter implements
 
 	private Context mContext;
 	private ArrayList<String> mData;
+	private ArrayList<Integer> mSelectedIndexes;
 
 	public HorizontalListAdapter(Context context, ArrayList<String> data) {
 		super();
 		this.mContext = context;
 		this.mData = data;
+		this.mSelectedIndexes = new ArrayList<Integer>();
 	}
 
 	@Override
@@ -48,23 +50,29 @@ public class HorizontalListAdapter extends BaseAdapter implements
 			convertView = inflater.inflate(R.layout.child_layout, null);
 			holder = new HorizontalListItemHolder();
 			holder.button = (Button) convertView.findViewById(R.id.button);
-			holder.button.setText(String.valueOf(position));
 			holder.label = (TextView) convertView.findViewById(R.id.label);
-			holder.button.setOnClickListener(this);
+			holder.mark = (ImageView) convertView.findViewById(R.id.check_mark);
 			holder.index = position;
 
+			holder.button.setOnClickListener(this);
+			holder.button.setText(String.valueOf(position));
 			convertView.setTag(holder);
 		} else {
 			holder = (HorizontalListItemHolder) convertView.getTag();
 		}
 
 		holder.label.setText((CharSequence) getItem(position));
+		if (mSelectedIndexes.contains(holder.index)) {
+			holder.mark.setVisibility(View.VISIBLE);
+		} else {
+			holder.mark.setVisibility(View.INVISIBLE);
+		}
 		return convertView;
 	}
 
 	public static class HorizontalListItemHolder {
-		ImageView mark;
 		Button button;
+		ImageView mark;
 		TextView label;
 		int index;
 	}
@@ -75,12 +83,12 @@ public class HorizontalListAdapter extends BaseAdapter implements
 		RelativeLayout parent = (RelativeLayout) v.getParent();
 		HorizontalListItemHolder holder = (HorizontalListItemHolder) parent
 				.getTag();
-		if (mData.get(holder.index).equalsIgnoreCase(" mark ")) {
-			mData.set(holder.index, " unmark ");
-		} else
-			mData.set(holder.index, " mark ");
+		if (mSelectedIndexes.contains(holder.index)) {
+			mSelectedIndexes.remove(Integer.valueOf(holder.index));
+		} else {
+			mSelectedIndexes.add(holder.index);
+		}
 		notifyDataSetChanged();
 
 	}
-
 }

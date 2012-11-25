@@ -16,6 +16,7 @@
 
 package com.sileria.android.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.Canvas;
@@ -840,12 +841,14 @@ public abstract class FriendAdapterView<T extends Adapter> extends AdapterView<T
 		}
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public boolean dispatchPopulateAccessibilityEvent (AccessibilityEvent event) {
 		View selectedView = getSelectedView();
 		return selectedView != null && selectedView.getVisibility() == VISIBLE && selectedView.dispatchPopulateAccessibilityEvent( event );
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public boolean onRequestSendAccessibilityEvent (View child, AccessibilityEvent event) {
 		if (super.onRequestSendAccessibilityEvent( child, event )) {

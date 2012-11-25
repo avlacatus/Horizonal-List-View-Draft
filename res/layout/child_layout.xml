@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_width="60dp"
+    android:layout_height="80dp" >
 
     <Button
         android:id="@+id/button"
         android:layout_width="50dp"
         android:layout_height="50dp" />
+
+    <ImageView
+        android:id="@+id/check_mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/button"
+        android:layout_alignLeft="@id/button"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/check_mark" />
 
     <TextView
         android:id="@+id/label"
