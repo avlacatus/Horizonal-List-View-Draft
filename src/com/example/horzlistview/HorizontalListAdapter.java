@@ -55,13 +55,12 @@ public class HorizontalListAdapter extends BaseAdapter implements
 			holder.index = position;
 
 			holder.button.setOnClickListener(this);
-			holder.button.setText(String.valueOf(position));
 			convertView.setTag(holder);
 		} else {
 			holder = (HorizontalListItemHolder) convertView.getTag();
 		}
 
-		holder.label.setText((CharSequence) getItem(position));
+		holder.label.setText(mData.get(position));
 		if (mSelectedIndexes.contains(holder.index)) {
 			holder.mark.setVisibility(View.VISIBLE);
 		} else {

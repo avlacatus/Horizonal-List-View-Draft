@@ -6,16 +6,17 @@
     <Button
         android:id="@+id/button"
         android:layout_width="50dp"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:background="@drawable/android_logo" />
 
     <ImageView
         android:id="@+id/check_mark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/button"
-        android:layout_alignLeft="@id/button"
+        android:layout_alignRight="@id/button"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/check_mark" />
+        android:src="@drawable/checkmark" />
 
     <TextView
         android:id="@+id/label"

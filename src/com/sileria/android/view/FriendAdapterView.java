@@ -841,14 +841,12 @@ public abstract class FriendAdapterView<T extends Adapter> extends AdapterView<T
 		}
 	}
 
-	@SuppressLint("NewApi")
 	@Override
 	public boolean dispatchPopulateAccessibilityEvent (AccessibilityEvent event) {
 		View selectedView = getSelectedView();
 		return selectedView != null && selectedView.getVisibility() == VISIBLE && selectedView.dispatchPopulateAccessibilityEvent( event );
 	}
 
-	@SuppressLint("NewApi")
 	@Override
 	public boolean onRequestSendAccessibilityEvent (View child, AccessibilityEvent event) {
 		if (super.onRequestSendAccessibilityEvent( child, event )) {

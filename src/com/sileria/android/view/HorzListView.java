@@ -16,7 +16,6 @@
 
 package com.sileria.android.view;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Rect;
@@ -49,7 +48,6 @@ import android.widget.Scroller;
  * @note Incomplete selection and selector work. (Might have some other minor
  *       bugs)
  */
-@SuppressLint("NewApi")
 public class HorzListView extends FriendAdapterView<ListAdapter> implements
 		GestureDetector.OnGestureListener {
 
